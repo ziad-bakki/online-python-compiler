@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Python Compiler</title>
-    <link rel="stylesheet" href="/static/style.css" /> 
+    <link rel="stylesheet" href="/static/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
+
+
 </head>
 <body>
     <h1> Python Online Compiler </h1>
     <div id="editor"></div>
-    <button onclick="runCode()">Run</button>
+    <button id="tester" onclick="runCode()">Run</button>
     <pre id="output"></pre>
     <script>
         const editor = ace.edit("editor");
@@ -31,6 +34,6 @@
             document.getElementById('output').textContent = result.output || result.error;
         }
     </script>
-    
+    <script src="/static/script.js"></script>
 </body>
 </html>
