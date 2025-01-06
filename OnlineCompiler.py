@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template_string, request
-
+import os
+import subprocess
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ HTML = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Python Compiler</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <style> 
         body {
             font-family: Arial, sans-serif;
@@ -61,6 +63,25 @@ HTML = """
     <div id="editor"></div>
     <button onclick="runCode()">Run</button>
     <pre id="output"></pre>
+    <script>
+        const editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/python");
+
+        async function runCode() {
+            const code = editor.getValue();
+            const response = await fetch('/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code })
+            });
+
+            const result = await response.json();
+            document.getElementById('output').textContent = result.output || result.error;
+        }
+    </script>
     
 </body>
 </html>
@@ -76,7 +97,28 @@ def index():
 def execute_code():
     data = request.json
     if not data or 'code' not in data:
-        return jsonify({'error': 'Invalid data'})
+        return jsonify({'error': 'Invalid Code'})
+    
+    code = data['code']
+    file_path = os.path.join(os.getcwd(), 'temp_code.py')
+    
+    try:
+        with open(file_path, 'w') as f:
+            f.write(code)
+            
+        result = subprocess.run(['python', file_path], capture_output=True, text=True)
+        os.remove(file_path)
+        
+        if result.returncode == 0:
+            return jsonify({'output':result.stdout}), 200
+        else:
+            return jsonify({'error':result.stderr}), 400
+    
+    except Exception as e:
+        return jsonify({'error':result.str(e)}), 500
+
+
+        
     
 
 
