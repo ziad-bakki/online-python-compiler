@@ -12,3 +12,27 @@ document.addEventListener('keydown', function (event) {
         RunHotKey();
     }
 });
+// function ToggleTheme() : void {
+//     const theme = document.body.getAttribute('data-theme');
+//     if (theme === 'light') {
+//         document.body.setAttribute('data-theme', 'dark');
+//     } else {
+//         document.body.setAttribute('data-theme', 'light');
+//     }
+// }
+{
+    var themeBtn_1 = document.getElementById('lightModeBtn');
+    if (themeBtn_1) {
+        themeBtn_1.addEventListener('click', function () {
+            var dataTheme = document.documentElement.getAttribute("data-theme");
+            if (dataTheme === 'light') {
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeBtn_1.innerText = 'Light Mode';
+            }
+            else {
+                document.documentElement.setAttribute("data-theme", "light");
+                themeBtn_1.innerText = 'Dark Mode';
+            }
+        });
+    }
+}
