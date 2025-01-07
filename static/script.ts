@@ -14,14 +14,8 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
-// function ToggleTheme() : void {
-//     const theme = document.body.getAttribute('data-theme');
-//     if (theme === 'light') {
-//         document.body.setAttribute('data-theme', 'dark');
-//     } else {
-//         document.body.setAttribute('data-theme', 'light');
-//     }
-// }
+
+
 {
     const themeBtn = document.getElementById('lightModeBtn');
     if (themeBtn) {
