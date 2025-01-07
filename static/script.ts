@@ -1,26 +1,15 @@
-{
-const test_click = document.getElementById('tester');
-
-if (test_click) {test_click.addEventListener('click', () => {
-    console.log('clicked');
-});
-}   else {
-        console.log(`cant find element ${test_click}!`);
-}
-}
-
-
-{
-    const test_click = document.getElementById('tester');
-    if (test_click) {
-        document.addEventListener('keydown', (event) => {
-            if (event.ctrlKey && event.key === 'Enter') {
-                event.preventDefault();
-                test_click.click();
-            }
-        })
+// This script is used to add a hotkey to run the code in the editor
+function RunHotKey() {
+    const runBtn = document.getElementById('runBtn');
+    if (runBtn) {
+        runBtn.click();
     }
-
-
-
 }
+
+// Add a hotkey to run the code in the editor
+document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === 'Enter') {
+        event.preventDefault();
+        RunHotKey();
+    }
+})
