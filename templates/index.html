@@ -15,12 +15,15 @@
         <h1> Python Online Compiler </h1>
         <button id="lightModeBtn">Dark Mode</button>
     </div>
-    <div id="editor"></div>
+    
+    <div style="display: flex">
+        <div id="editor"></div>
+        <pre id="output"></pre>
+    </div>
     <button id="runBtn" onclick="runCode()">Run (ctrl + enter)</button>
-    <pre id="output"></pre>
-    <script>
-        const darkMode = window.matchMedia("(prefers-color-scheme:dark)").matches;
 
+    
+    <script>
         const editor = ace.edit("editor");
         editor.setTheme("ace/theme/monokai");
         editor.session.setMode("ace/mode/python");
