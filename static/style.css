@@ -33,8 +33,9 @@ h1 {
 button {
     font-size: 16px;
     padding: 10px 20px;
-    margin-top: 10px;
     cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: none;
     border-radius: 4px;
     background-color: #007bff;
@@ -53,4 +54,17 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow: auto;
+}
+
+
+.title-level {
+  display: flex;
+  padding: 4px;
+
+
+
+}
+
+.title-level > button {
+  margin-left: auto;
 }
