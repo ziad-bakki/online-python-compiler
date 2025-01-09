@@ -80,3 +80,12 @@ pre {
 .topnav > button {
   margin-left: auto;
 }
+
+
+#github {
+  background-image: url('/static/github-mark/github-mark.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+}
