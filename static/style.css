@@ -7,12 +7,14 @@
     --color-bg: #ffffff;
     --color-fg: #000000;
     --color-nav: rgb(200, 200, 200);
+    --github-logo: url('/static/github-mark/github-mark.svg');
   }
   
   [data-theme="dark"] {
     --color-bg: #2a2828;
     --color-fg: #ffffff;
     --color-nav: rgb(50, 50, 50);
+    --github-logo: url('/static/github-mark/github-mark-white.svg');
   }
   
   /* example use of CSS custom properties */
@@ -81,11 +83,29 @@ pre {
   margin-left: auto;
 }
 
+.bottomnav {
+  display: flex; 
+  margin: 20px; 
+  justify-content: space-between; 
+  bottom: 0; 
+  position: absolute; 
+  width: 100%;
+}
 
-#github {
-  background-image: url('/static/github-mark/github-mark.svg');
+.bottomnav a {
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
   height: 32px;
+  transition: scale 0.2s;
+  
 }
+
+.bottomnav a:hover {
+  scale: 1.5;
+}
+
+#github {
+  background-image: var(--github-logo);
+}
+
