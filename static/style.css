@@ -7,14 +7,14 @@
     --color-bg: #ffffff;
     --color-fg: #000000;
     --color-nav: rgb(200, 200, 200);
-    --github-logo: url('/static/github-mark/github-mark.svg');
+    --github-logo: url('github-mark/github-mark.svg');
   }
   
   [data-theme="dark"] {
     --color-bg: #2a2828;
     --color-fg: #ffffff;
     --color-nav: rgb(50, 50, 50);
-    --github-logo: url('/static/github-mark/github-mark-white.svg');
+    --github-logo: url('github-mark/github-mark-white.svg');
   }
   
   /* example use of CSS custom properties */
@@ -116,5 +116,5 @@ pre {
 }
 
 #linkedin {
-  background-image: url('/static/LinkedIn\ Icon.svg');
+  background-image: url('LinkedIn\ Icon.svg');
 }
