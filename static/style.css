@@ -26,6 +26,7 @@
 h1 {
     font-size: 24px;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 #editor {
     width: 50%;
@@ -81,15 +82,17 @@ pre {
 
 .topnav > button {
   margin-left: auto;
+  margin-right: 20px;
 }
 
 .bottomnav {
   display: flex; 
-  margin: 20px; 
-  justify-content: space-between; 
+  justify-content:space-evenly; 
   bottom: 0; 
   position: absolute; 
   width: 100%;
+  border-top: 1px solid #474747;
+  background-color: var(--color-nav);
 }
 
 .bottomnav a {
@@ -97,7 +100,10 @@ pre {
   background-repeat: no-repeat;
   width: 32px;
   height: 32px;
+  margin-top: 1%;
+  margin-bottom: 1%;
   transition: scale 0.2s;
+
   
 }
 
@@ -109,3 +115,6 @@ pre {
   background-image: var(--github-logo);
 }
 
+#linkedin {
+  background-image: url('/static/LinkedIn\ Icon.svg');
+}
